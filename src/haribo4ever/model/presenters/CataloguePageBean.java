@@ -40,5 +40,10 @@ public class CataloguePageBean implements Serializable {
 	public GenreBonbon[] getGenresBonbon(){
 		return GenreBonbon.values();
 	}
+	
+	public void suppression(Paquet p){
+		daoPaquet.delete(p.getId());
+		// TODO envoyer un message de succes JSF
+	}
 
 }
