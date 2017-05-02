@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Catalogue</title>
+</h:head>
+<body>
+	<h1>Gestion du catalogue</h1>
+	<h:form>
+		<h:panelGrid columns="3">
+
+			<h:outputLabel value="Genre" for="genreBonbon" />
+			<h:selectOneMenu id="genreBonbon" required="true"
+				value="#{cataloguePageBean.nouveauPaquet.genre}">
+				<f:selectItems value="#{cataloguePageBean.genresBonbon}" />
+			</h:selectOneMenu>
+			<h:message for="genreBonbon" />
+
+
+			<h:outputLabel value="Libellé" for="libelleBonbon" />
+			<h:inputText id="libelleBonbon" required="true"
+				value="#{cataloguePageBean.nouveauPaquet.nom}" />
+			<h:message for="libelleBonbon" />
+
+			<h:outputLabel value="Poids" for="poidsBonbon" />
+			<h:inputText id="poidsBonbon" required="true"
+				value="#{cataloguePageBean.nouveauPaquet.poids}" />
+			<h:message for="poidsBonbon" />
+
+
+			<h:outputLabel value="brouzouf" for="brouzoufBonbon" />
+			<h:inputText id="brouzoufBonbon" required="true"
+				value="#{cataloguePageBean.nouveauPaquet.brouzouf}" />
+			<h:message for="brouzoufBonbon" />
+
+
+			<h:outputLabel value="description" for="descriptionBonbon" />
+			<h:inputTextarea id="descriptionBonbon"
+				value="#{cataloguePageBean.nouveauPaquet.description}" />
+			<h:message for="descriptionBonbon" />
+
+			<h:commandButton value="Ajouter" />
+
+		</h:panelGrid>
+	</h:form>
+</body>
+</html>
