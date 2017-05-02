@@ -3,6 +3,7 @@ package haribo4ever.model.presenters;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.inject.spi.CDI;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -27,6 +28,8 @@ public class CataloguePageBean implements Serializable {
 
 	public void ajouterPaquet() {
 		daoPaquet.create(nouveauPaquet);
+		// grace à CDI remet un paquet neuf 
+		nouveauPaquet = CDI.current().select(Paquet.class).get();
 		// TODO envoyer un message de succes JSF
 	}
 

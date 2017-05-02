@@ -42,9 +42,38 @@
 				value="#{cataloguePageBean.nouveauPaquet.description}" />
 			<h:message for="descriptionBonbon" />
 
-			<h:commandButton value="Ajouter" />
+			<h:commandButton
+				actionListener="#{cataloguePageBean.ajouterPaquet()}"
+				value="Ajouter" />
 
 		</h:panelGrid>
+
+
 	</h:form>
+
+	<!--  p comme paquet, il est dispo en completion automatique en dessous -->
+	<h:dataTable value="#{cataloguePageBean.listerPaquets()}" var="p">
+
+		<h:column>
+			<f:facet name="header">Libellé</f:facet>
+			<h:outputText value="#{p.nom}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Genre</f:facet>
+			<h:outputText value="#{p.genre}" />
+		</h:column>
+
+		<h:column>
+			<f:facet name="header">Brouzouf</f:facet>
+			<h:outputText value="#{p.brouzouf}" />
+		</h:column>
+
+
+	</h:dataTable>
+
+
+
+
 </body>
 </html>
