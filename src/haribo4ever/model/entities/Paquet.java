@@ -16,11 +16,12 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import haribo4ever.commons.UUIDString;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
+import net.entetrs.commons.uuid.GeneratedUUID;
+import net.entetrs.commons.uuid.UUIDRepresentation;
 
 @SuppressWarnings("serial")
 @Dependent
@@ -32,7 +33,7 @@ public class Paquet implements Serializable {
 
 	@Id
 	@Inject
-	@UUIDString
+	@GeneratedUUID(representation=UUIDRepresentation.HEXA_STRING)
 	@Getter
 	String id;
 
