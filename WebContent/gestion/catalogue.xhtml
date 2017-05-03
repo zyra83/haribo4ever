@@ -63,16 +63,17 @@
 				</p:textEditor>
 				<h:message for="descriptionBonbon" />
 
-				<h:commandButton
+				<p:commandButton
+					update="@form :dataForm:dataTable"
 					actionListener="#{cataloguePageBean.ajouterPaquet()}"
 					value="Ajouter" />
 			</h:panelGrid>
 		</h:form>
 	</p:panel>
 
-	<h:form>
+	<h:form id="dataForm">
 		<!--  p comme paquet, il est dispo en completion automatique en dessous -->
-		<h:dataTable value="#{cataloguePageBean.listerPaquets()}" var="p">
+		<h:dataTable id="dataTable" value="#{cataloguePageBean.listerPaquets()}" var="p">
 
 			<h:column>
 				<f:facet name="header">Libellé</f:facet>
