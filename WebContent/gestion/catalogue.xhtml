@@ -2,54 +2,73 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Catalogue</title>
 </h:head>
 <body>
 	<h1>Gestion du catalogue</h1>
-	<h:form>
-		<h:panelGrid columns="3">
+	<p:panel>
+		<h:form>
+			<h:panelGrid columns="3">
 
-			<h:outputLabel value="Genre" for="genreBonbon" />
-			<h:selectOneMenu id="genreBonbon" required="true"
-				value="#{cataloguePageBean.nouveauPaquet.genre}">
-				<f:selectItems value="#{cataloguePageBean.genresBonbon}" />
-			</h:selectOneMenu>
-			<h:message for="genreBonbon" />
-
-
-			<h:outputLabel value="Libellé" for="libelleBonbon" />
-			<h:inputText id="libelleBonbon" required="true"
-				value="#{cataloguePageBean.nouveauPaquet.nom}" />
-			<h:message for="libelleBonbon" />
-
-			<h:outputLabel value="Poids" for="poidsBonbon" />
-			<h:inputText id="poidsBonbon" required="true"
-				value="#{cataloguePageBean.nouveauPaquet.poids}" />
-			<h:message for="poidsBonbon" />
+				<p:outputLabel value="Genre" for="genreBonbon" />
+				
+				<p:selectOneListbox id="genreBonbon" required="true"
+					value="#{cataloguePageBean.nouveauPaquet.genre}">
+					<f:selectItems value="#{cataloguePageBean.genresBonbon}"
+						var="bonbon" itemLabel="#{bonbon.libelle}" itemValue="#{bonbon}" />
+				</p:selectOneListbox>
+				
+				<p:message for="genreBonbon" />
 
 
-			<h:outputLabel value="brouzouf" for="brouzoufBonbon" />
-			<h:inputText id="brouzoufBonbon" required="true"
-				value="#{cataloguePageBean.nouveauPaquet.brouzouf}" />
-			<h:message for="brouzoufBonbon" />
+
+				<p:outputLabel value="Libellé" for="libelleBonbon" />
+				<p:inputText id="libelleBonbon" required="true"
+					value="#{cataloguePageBean.nouveauPaquet.nom}" />
+				<p:message for="libelleBonbon" />
+
+				<p:outputLabel value="Poids" for="poidsBonbon" />
+				<p:spinner suffix=" g."  id="poidsBonbon" required="true"
+					value="#{cataloguePageBean.nouveauPaquet.poids}" min="0" max="250" />
+				<p:message for="poidsBonbon" />
 
 
-			<h:outputLabel value="description" for="descriptionBonbon" />
-			<h:inputTextarea id="descriptionBonbon"
-				value="#{cataloguePageBean.nouveauPaquet.description}" />
-			<h:message for="descriptionBonbon" />
-
-			<h:commandButton
-				actionListener="#{cataloguePageBean.ajouterPaquet()}"
-				value="Ajouter" />
-
-		</h:panelGrid>
+				<p:outputLabel value="brouzouf" for="brouzoufBonbon" />
+				<p:spinner id="brouzoufBonbon" required="true"
+					value="#{cataloguePageBean.nouveauPaquet.brouzouf}" prefix="ꓭz"
+					min="0" max="100" />
+				<p:message for="brouzoufBonbon" />
 
 
-	</h:form>
+
+				<h:outputLabel value="description" for="descriptionBonbon" />
+
+				<p:textEditor id="descriptionBonbon" value="#{cataloguePageBean.nouveauPaquet.description}"
+					placeholder="Entrez votre description">
+					<f:facet name="toolbar">
+						<span class="ql-formats">
+							<button class="ql-bold"></button>
+							<button class="ql-italic"></button>
+							<button class="ql-underline"></button>
+							<button class="ql-strike"></button>
+						</span>
+						<span class="ql-formats"> <select class="ql-font"></select>
+							<select class="ql-size"></select>
+						</span>
+					</f:facet>
+				</p:textEditor>
+				<h:message for="descriptionBonbon" />
+
+				<h:commandButton
+					actionListener="#{cataloguePageBean.ajouterPaquet()}"
+					value="Ajouter" />
+			</h:panelGrid>
+		</h:form>
+	</p:panel>
 
 	<h:form>
 		<!--  p comme paquet, il est dispo en completion automatique en dessous -->
@@ -72,7 +91,8 @@
 
 			<h:column>
 				<f:facet name="header">Action</f:facet>
-				<h:commandButton value="Suppression" actionListener="#{cataloguePageBean.suppression(p)}"/>
+				<h:commandButton value="Suppression"
+					actionListener="#{cataloguePageBean.suppression(p)}" />
 			</h:column>
 
 		</h:dataTable>

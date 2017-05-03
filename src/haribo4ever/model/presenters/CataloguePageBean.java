@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.enterprise.inject.spi.CDI;
+import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,13 +13,20 @@ import haribo4ever.model.dao.DaoPaquetJPA;
 import haribo4ever.model.entities.GenreBonbon;
 import haribo4ever.model.entities.Paquet;
 import lombok.Getter;
+import lombok.Setter;
 
 @SuppressWarnings("serial")
 @Named
 @ViewScoped // reste la même vue tant qu'il y a des probelems de saisie pour
 			// l'utilisateur
+@ManagedBean
 public class CataloguePageBean implements Serializable {
-
+	@Getter
+	@Setter
+	private String text;
+	 
+	
+	
 	@Inject
 	private DaoPaquetJPA daoPaquet;
 
@@ -45,5 +53,7 @@ public class CataloguePageBean implements Serializable {
 		daoPaquet.delete(p.getId());
 		// TODO envoyer un message de succes JSF
 	}
+	
+	
 
 }
