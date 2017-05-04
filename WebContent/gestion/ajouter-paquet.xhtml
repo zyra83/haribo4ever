@@ -64,40 +64,12 @@
 				<h:message for="descriptionBonbon" />
 
 				<p:commandButton
-					update="@form :dataForm:dataTable"
+					update="@form"
 					actionListener="#{cataloguePageBean.ajouterPaquet()}"
 					value="Ajouter" />
 			</h:panelGrid>
 		</h:form>
 	</p:panel>
-
-	<h:form id="dataForm">
-		<!--  p comme paquet, il est dispo en completion automatique en dessous -->
-		<h:dataTable id="dataTable" value="#{cataloguePageBean.listerPaquets()}" var="p">
-
-			<h:column>
-				<f:facet name="header">Libellé</f:facet>
-				<h:outputText value="#{p.nom}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Genre</f:facet>
-				<h:outputText value="#{p.genre}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Brouzouf</f:facet>
-				<h:outputText value="#{p.brouzouf}" />
-			</h:column>
-
-			<h:column>
-				<f:facet name="header">Action</f:facet>
-				<h:commandButton value="Suppression"
-					actionListener="#{cataloguePageBean.suppression(p)}" />
-			</h:column>
-
-		</h:dataTable>
-	</h:form>
 
 </body>
 </html>
