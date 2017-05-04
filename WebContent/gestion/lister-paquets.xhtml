@@ -11,6 +11,9 @@
 <body>
 	<h1>Catalogue</h1>
 	<h:form id="dataForm">
+	
+		<h:link outcome="ajouter-paquet.xhtml" header="Données" >Retour à l'ajout</h:link>
+		
 		<!--  p comme paquet, il est dispo en completion automatique en dessous -->
 		<h:dataTable id="dataTable" value="#{cataloguePageBean.listerPaquets()}" var="p">
 
