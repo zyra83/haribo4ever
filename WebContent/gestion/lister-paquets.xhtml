@@ -7,38 +7,42 @@
 
 <h:head>
 	<title>Catalogue</title>
+	<h:outputStylesheet library="css" name="screen.css" />
 </h:head>
 <body>
 	<h1>Catalogue</h1>
-	<h:form id="dataForm">
-	
-		<h:link outcome="ajouter-paquet.xhtml" header="Données" >Retour à l'ajout</h:link>
-		
-		<!--  p comme paquet, il est dispo en completion automatique en dessous -->
-		<h:dataTable id="dataTable" value="#{cataloguePageBean.listerPaquets()}" var="p">
+	<p:panel id="basic" header="Basic" footer="Movie Details" style="margin-bottom:20px">
+		<h:form id="dataForm">
 
-			<h:column>
-				<f:facet name="header">Libellé</f:facet>
-				<h:outputText value="#{p.nom}" />
-			</h:column>
+			<h:link outcome="ajouter-paquet.xhtml" header="Données">Retour à l'ajout</h:link>
 
-			<h:column>
-				<f:facet name="header">Genre</f:facet>
-				<h:outputText value="#{p.genre}" />
-			</h:column>
+			<!--  p comme paquet, il est dispo en completion automatique en dessous -->
+			<p:dataTable id="dataTable"
+				value="#{cataloguePageBean.listerPaquets()}" var="p">
 
-			<h:column>
-				<f:facet name="header">Brouzouf</f:facet>
-				<h:outputText value="#{p.brouzouf}" />
-			</h:column>
+				<p:column headerText="Libellé">
+<!-- 					<f:facet name="header">Libellé</f:facet> -->
+					<h:outputText value="#{p.nom}" />
+				</p:column>
 
-			<h:column>
-				<f:facet name="header">Action</f:facet>
-				<h:commandButton value="Suppression"
-					actionListener="#{cataloguePageBean.suppression(p)}" />
-			</h:column>
+				<p:column headerText="Genre">
+<!-- 					<f:facet name="header">Genre</f:facet> -->
+					<h:outputText value="#{p.genre}" />
+				</p:column>
 
-		</h:dataTable>
-	</h:form>
+				<p:column headerText="Brouzouf">
+<!-- 					<f:facet name="header">Brouzouf</f:facet> -->
+					<h:outputText value="#{p.brouzouf}" />
+				</p:column>
+
+				<p:column headerText="Actions">
+<!-- 					<f:facet name="header">Action</f:facet> -->
+					<h:commandButton value="Suppression"
+						actionListener="#{cataloguePageBean.suppression(p)}" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</p:panel>
 </body>
 </html>

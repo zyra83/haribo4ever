@@ -1,0 +1,7 @@
+WARNING=DO NOT MODIFY THIS FILE IF YOU DON'T UNDERSTAND
+defaultDestination=/opt/glassfish-payara-4-1/glassfish/domains/domain1/eclipseApps/HariboForEver
+defaultVariables=
+eclipse.preferences.version=1
+includeTeamPrivateFiles=false
+map|0=WebContent|,|,|,|,
+useCurrentDateForDestinationFiles=false
