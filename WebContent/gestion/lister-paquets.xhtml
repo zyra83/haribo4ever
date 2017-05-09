@@ -1,48 +1,51 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/standard.xhtml">
 
-<h:head>
-	<title>Catalogue</title>
-	<h:outputStylesheet library="css" name="screen.css" />
-</h:head>
-<body>
-	<h1>Catalogue</h1>
-	<p:panel id="basic" header="Basic" footer="17-3A-pdi" style="margin-bottom:20px">
-		<h:form id="dataForm">
+	<ui:define name="zone-titre">
+		Liste des paquets
+	</ui:define>
 
-			<h:link outcome="ajouter-paquet.xhtml" header="Données">Retour à l'ajout</h:link>
 
-			<!--  p comme paquet, il est dispo en completion automatique en dessous -->
-			<p:dataTable id="dataTable"
-				value="#{cataloguePageBean.listerPaquets()}" var="p">
+	<ui:define name="zone-contenu">
+		<p:panel id="basic" header="Basic" footer="17-3A-pdi"
+			style="margin-bottom:20px">
+			<h:form id="dataForm">
 
-				<p:column headerText="Libellé">
-<!-- 					<f:facet name="header">Libellé</f:facet> -->
-					<h:outputText value="#{p.nom}" />
-				</p:column>
+				<h:link outcome="ajouter-paquet.xhtml" header="Données">Retour à l'ajout</h:link>
 
-				<p:column headerText="Genre">
-<!-- 					<f:facet name="header">Genre</f:facet> -->
-					<h:outputText value="#{p.genre}" />
-				</p:column>
+				<!--  p comme paquet, il est dispo en completion automatique en dessous -->
+				<p:dataTable id="dataTable"
+					value="#{cataloguePageBean.listerPaquets()}" var="p">
 
-				<p:column headerText="Brouzouf">
-<!-- 					<f:facet name="header">Brouzouf</f:facet> -->
-					<h:outputText value="#{p.brouzouf}" />
-				</p:column>
+					<p:column headerText="Libellé">
+						<!-- 					<f:facet name="header">Libellé</f:facet> -->
+						<h:outputText value="#{p.nom}" />
+					</p:column>
 
-				<p:column headerText="Actions">
-<!-- 					<f:facet name="header">Action</f:facet> -->
-					<h:commandButton value="Suppression"
-						actionListener="#{cataloguePageBean.suppression(p)}" />
-				</p:column>
+					<p:column headerText="Genre">
+						<!-- 					<f:facet name="header">Genre</f:facet> -->
+						<h:outputText value="#{p.genre}" />
+					</p:column>
 
-			</p:dataTable>
-		</h:form>
-	</p:panel>
-</body>
-</html>
+					<p:column headerText="Brouzouf">
+						<!-- 					<f:facet name="header">Brouzouf</f:facet> -->
+						<h:outputText value="#{p.brouzouf}" />
+					</p:column>
+
+					<p:column headerText="Actions">
+						<!-- 					<f:facet name="header">Action</f:facet> -->
+						<h:commandButton value="Suppression"
+							actionListener="#{cataloguePageBean.suppression(p)}" />
+					</p:column>
+
+				</p:dataTable>
+			</h:form>
+		</p:panel>
+		
+	</ui:define>
+	
+</ui:composition>
