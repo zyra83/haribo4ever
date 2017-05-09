@@ -1,76 +1,75 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/standard.xhtml">
 
-<h:head>
-	<title>Catalogue</title>
-</h:head>
-<body>
-	<h1>Gestion du catalogue</h1>
-	<p:panel>
-		<h:form>
-			<h:panelGrid columns="3">
+	<ui:define name="zone-titre">
+		Ajouter un paquet
+	</ui:define>
 
-				<p:outputLabel value="Genre" for="genreBonbon" />
-				
-				<p:selectOneListbox id="genreBonbon" required="true"
-					value="#{cataloguePageBean.nouveauPaquet.genre}">
-					<f:selectItems value="#{cataloguePageBean.genresBonbon}"
-						var="bonbon" itemLabel="#{bonbon.libelle}" itemValue="#{bonbon}" />
-				</p:selectOneListbox>
-				
-				<p:message for="genreBonbon" />
+	<ui:define name="zone-contenu">
+		<p:panel>
+			<h:form>
+				<h:panelGrid columns="3">
 
+					<p:outputLabel value="Genre" for="genreBonbon" />
 
+					<p:selectOneListbox id="genreBonbon" required="true"
+						value="#{cataloguePageBean.nouveauPaquet.genre}">
+						<f:selectItems value="#{cataloguePageBean.genresBonbon}"
+							var="bonbon" itemLabel="#{bonbon.libelle}" itemValue="#{bonbon}" />
+					</p:selectOneListbox>
 
-				<p:outputLabel value="Libellé" for="libelleBonbon" />
-				<p:inputText id="libelleBonbon" required="true"
-					value="#{cataloguePageBean.nouveauPaquet.nom}" />
-				<p:message for="libelleBonbon" />
-
-				<p:outputLabel value="Poids" for="poidsBonbon" />
-				<p:spinner suffix=" g."  id="poidsBonbon" required="true"
-					value="#{cataloguePageBean.nouveauPaquet.poids}" min="0" max="250" />
-				<p:message for="poidsBonbon" />
-
-
-				<p:outputLabel value="brouzouf" for="brouzoufBonbon" />
-				<p:spinner id="brouzoufBonbon" required="true"
-					value="#{cataloguePageBean.nouveauPaquet.brouzouf}" prefix="ꓭz"
-					min="0" max="100" />
-				<p:message for="brouzoufBonbon" />
+					<p:message for="genreBonbon" />
 
 
 
-				<h:outputLabel value="description" for="descriptionBonbon" />
+					<p:outputLabel value="Libellé" for="libelleBonbon" />
+					<p:inputText id="libelleBonbon" required="true"
+						value="#{cataloguePageBean.nouveauPaquet.nom}" />
+					<p:message for="libelleBonbon" />
 
-				<p:textEditor id="descriptionBonbon" value="#{cataloguePageBean.nouveauPaquet.description}"
-					placeholder="Entrez votre description">
-					<f:facet name="toolbar">
-						<span class="ql-formats">
-							<button class="ql-bold"></button>
-							<button class="ql-italic"></button>
-							<button class="ql-underline"></button>
-							<button class="ql-strike"></button>
-						</span>
-						<span class="ql-formats"> <select class="ql-font"></select>
-							<select class="ql-size"></select>
-						</span>
-					</f:facet>
-				</p:textEditor>
-				<h:message for="descriptionBonbon" />
+					<p:outputLabel value="Poids" for="poidsBonbon" />
+					<p:spinner suffix=" g." id="poidsBonbon" required="true"
+						value="#{cataloguePageBean.nouveauPaquet.poids}" min="0" max="250" />
+					<p:message for="poidsBonbon" />
 
-				<p:commandButton
-					update="@form"
-					actionListener="#{cataloguePageBean.ajouterPaquet()}"
-					action="lister-paquets.xhtml?faces-redirect=true"
-					value="Ajouter" />
-			</h:panelGrid>
-		</h:form>
-	</p:panel>
 
-</body>
-</html>
+					<p:outputLabel value="brouzouf" for="brouzoufBonbon" />
+					<p:spinner id="brouzoufBonbon" required="true"
+						value="#{cataloguePageBean.nouveauPaquet.brouzouf}" prefix="ꓭz"
+						min="0" max="100" />
+					<p:message for="brouzoufBonbon" />
+
+
+
+					<h:outputLabel value="description" for="descriptionBonbon" />
+
+					<p:textEditor id="descriptionBonbon"
+						value="#{cataloguePageBean.nouveauPaquet.description}"
+						placeholder="Entrez votre description">
+						<f:facet name="toolbar">
+							<span class="ql-formats">
+								<button class="ql-bold"></button>
+								<button class="ql-italic"></button>
+								<button class="ql-underline"></button>
+								<button class="ql-strike"></button>
+							</span>
+							<span class="ql-formats"> <select class="ql-font"></select>
+								<select class="ql-size"></select>
+							</span>
+						</f:facet>
+					</p:textEditor>
+					<h:message for="descriptionBonbon" />
+
+					<p:commandButton update="@form"
+						actionListener="#{cataloguePageBean.ajouterPaquet()}"
+						action="lister-paquets.xhtml?faces-redirect=true" value="Ajouter" />
+				</h:panelGrid>
+			</h:form>
+		</p:panel>
+
+	</ui:define>
+
+</ui:composition>
