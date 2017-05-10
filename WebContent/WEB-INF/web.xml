@@ -39,4 +39,10 @@
 		<mime-type>application/vnd.ms-fontobject</mime-type>
 	</mime-mapping>
 
+
+	<!-- ça ça désactive les themes primefaces -->
+	<context-param>
+		<param-name>primefaces.THEME</param-name>
+		<param-value>none</param-value>
+	</context-param>
 </web-app>

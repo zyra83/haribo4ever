@@ -2,6 +2,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
 	template="/WEB-INF/templates/standard.xhtml">
 
 	<ui:define name="zone-titre">
@@ -9,67 +10,63 @@
 	</ui:define>
 
 	<ui:define name="zone-contenu">
-		<p:panel>
+
+		<h:form>
+l
 			<h:form>
-				<h:panelGrid columns="3">
+				<div class="form-group">
+					<h:outputLabel value="Genre" for="genreBonbon" />
+					<h:selectOneMenu class="form-control" id="genreBonbon"
+						required="true" value="#{cataloguePageBean.nouveauPaquet.genre}">
+						<f:selectItems value="#{cataloguePageBean.genresBonbon}" />
+					</h:selectOneMenu>
+					<h:message for="genreBonbon" />
+				</div>
 
-					<p:outputLabel value="Genre" for="genreBonbon" />
+				<div class="form-group">
+					<h:outputLabel value="Libellé" for="libelleBonbon" />
+					<h:inputText class="form-control" id="libelleBonbon"
+						required="true" value="#{cataloguePageBean.nouveauPaquet.nom}" />
+					<h:message for="libelleBonbon" />
+				</div>
 
-					<p:selectOneListbox id="genreBonbon" required="true"
-						value="#{cataloguePageBean.nouveauPaquet.genre}">
-						<f:selectItems value="#{cataloguePageBean.genresBonbon}"
-							var="bonbon" itemLabel="#{bonbon.libelle}" itemValue="#{bonbon}" />
-					</p:selectOneListbox>
-
-					<p:message for="genreBonbon" />
-
-
-
-					<p:outputLabel value="Libellé" for="libelleBonbon" />
-					<p:inputText id="libelleBonbon" required="true"
-						value="#{cataloguePageBean.nouveauPaquet.nom}" />
-					<p:message for="libelleBonbon" />
-
-					<p:outputLabel value="Poids" for="poidsBonbon" />
-					<p:spinner suffix=" g." id="poidsBonbon" required="true"
-						value="#{cataloguePageBean.nouveauPaquet.poids}" min="0" max="250" />
-					<p:message for="poidsBonbon" />
-
-
-					<p:outputLabel value="brouzouf" for="brouzoufBonbon" />
-					<p:spinner id="brouzoufBonbon" required="true"
-						value="#{cataloguePageBean.nouveauPaquet.brouzouf}" prefix="ꓭz"
-						min="0" max="100" />
-					<p:message for="brouzoufBonbon" />
+				<div class="form-group">
+					<h:outputLabel value="Poids" for="poidsBonbon" />
+					<input type="number" class="form-control" jsf:id="poidsBonbon"
+						required="true"
+						jsf:value="#{cataloguePageBean.nouveauPaquet.poids}" />
+					<h:message for="poidsBonbon" />
+				</div>
 
 
+				<div class="form-group">
+					<h:outputLabel value="brouzouf" for="brouzoufBonbon" />
+					<h:inputText class="form-control" id="brouzoufBonbon"
+						required="true"
+						value="#{cataloguePageBean.nouveauPaquet.brouzouf}" />
+					<h:message for="brouzoufBonbon" />
+				</div>
 
+				<div class="form-group">
 					<h:outputLabel value="description" for="descriptionBonbon" />
-
-					<p:textEditor id="descriptionBonbon"
-						value="#{cataloguePageBean.nouveauPaquet.description}"
-						placeholder="Entrez votre description">
-						<f:facet name="toolbar">
-							<span class="ql-formats">
-								<button class="ql-bold"></button>
-								<button class="ql-italic"></button>
-								<button class="ql-underline"></button>
-								<button class="ql-strike"></button>
-							</span>
-							<span class="ql-formats"> <select class="ql-font"></select>
-								<select class="ql-size"></select>
-							</span>
-						</f:facet>
-					</p:textEditor>
+					<h:inputTextarea class="form-control" id="descriptionBonbon"
+						value="#{cataloguePageBean.nouveauPaquet.description}" />
 					<h:message for="descriptionBonbon" />
+				</div>
 
-					<p:commandButton update="@form"
-						actionListener="#{cataloguePageBean.ajouterPaquet()}"
-						action="lister-paquets.xhtml?faces-redirect=true" value="Ajouter" />
-				</h:panelGrid>
+				<div class="form-group">
+					<input type="submit"
+						jsf:action="#{cataloguePageBean.ajouterPaquet()}" value="Ajouter" />
+						
+						<button jsf:action="#{cataloguePageBean.ajouterPaquet()}">Ajouter OK</button>
+				</div>
+
+
 			</h:form>
-		</p:panel>
 
+
+
+		</h:form>
 	</ui:define>
 
 </ui:composition>
