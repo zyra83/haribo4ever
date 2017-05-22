@@ -3,6 +3,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:etrs="http://java.sun.com/jsf/composite/etrs"
 	template="/WEB-INF/templates/standard.xhtml">
 
 	<ui:define name="zone-titre">
@@ -11,6 +12,12 @@
 
 
 	<ui:define name="zone-contenu">
+		
+	
+	<etrs:box title="Composant BOX ETRS">
+		Le contenu du composant BOX etrs
+	</etrs:box>
+	
 		<p:panel id="basic" header="Basic" footer="17-3A-pdi"
 			style="margin-bottom:20px">
 			<h:form id="dataForm">

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import lombok.extern.apachecommons.CommonsLog;
 
-@WebFilter(filterName = "batardFilter", urlPatterns = "/*")
+//@WebFilter(filterName = "batardFilter", urlPatterns = "/*")
 @CommonsLog
 public class BatardFilter implements Filter {
 
