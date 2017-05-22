@@ -1,21 +1,15 @@
+<?xml version="1.0"?>
 <facelet-taglib version="2.2"
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
-	
-	<namespace>http://prsi/demo</namespace>
-	  
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
+
+	<namespace>http://prsi/taglib</namespace>
+
 	<tag>
-		    
 		<tag-name>mon-tag</tag-name>
-		    
 		<component>
-			      
-			<resource-id>/WEB-INF/tags/mon-tag.xhtml</resource-id>
-			    
+			<resource-id>tags/mon-tag.xhtml</resource-id>
 		</component>
-		  
 	</tag>
-	
 
 </facelet-taglib>
