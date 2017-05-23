@@ -17,18 +17,10 @@
 		<url-pattern>*.xhtml</url-pattern>
 		<url-pattern>/javax.faces.resource/*</url-pattern>
 	</servlet-mapping>
-
-	<!-- rend les ressources innaccessibles directement depuis l'exterieur -->
-	<context-param>
-		<param-name>javax.faces.WEBAPP_RESOURCES_DIRECTORY</param-name>
-		<param-value>/WEB-INF/resources</param-value>
-	</context-param>
-
 	<context-param>
 		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
 		<param-value>/WEB-INF/prsi.taglib.xml</param-value>
 	</context-param>
-
 	<mime-mapping>
 		<extension>ttf</extension>
 		<mime-type>css/fonts</mime-type>
