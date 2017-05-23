@@ -13,5 +13,26 @@
 		<tag-name>mon-tag</tag-name>
 		<source>./tags/mon-tag.xhtml</source>
 	</tag>
+	
+	<!-- Le composant pur Java FacesComponent -->
+	<tag>
+		<description>Affiche une instance de LocalDate en fonction d'un pattern</description>
+		<tag-name>localDate</tag-name>
+		<component>
+			<component-type>components.LocalDateTag</component-type>
+		</component>
+		<attribute>
+			<description>Instance d'une LocalDate</description>
+			<name>value</name>
+			<required>true</required>
+			<type>java.lang.Object</type>
+		</attribute>
+		<attribute>
+			<description>Pattern à appliquer</description>
+			<name>pattern</name>
+			<required>false</required>
+			<type>java.lang.String</type>
+		</attribute>
+	</tag>
 
 </facelet-taglib>

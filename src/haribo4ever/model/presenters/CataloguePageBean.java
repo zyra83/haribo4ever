@@ -1,8 +1,11 @@
 package haribo4ever.model.presenters;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.spi.CDI;
 import javax.faces.bean.ManagedBean;
 import javax.faces.view.ViewScoped;
@@ -25,7 +28,14 @@ public class CataloguePageBean implements Serializable {
 	@Setter
 	private String text;
 	 
+	@Getter
+	@Setter
+	LocalDate dateNow;
 	
+	@PostConstruct
+	public void initialize(){
+		dateNow = LocalDate.now();
+	}
 	
 	@Inject
 	private DaoPaquetJPA daoPaquet;
