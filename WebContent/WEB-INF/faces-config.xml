@@ -9,9 +9,4 @@
 		<resource-handler>org.omnifaces.resourcehandler.UnmappedResourceHandler</resource-handler>
 	</application>
 
-	<component>
-		<component-type>components.LocalDateTag</component-type>
-		<component-class>components.LocalDateTag</component-class>
-	</component>
-
 </faces-config>

@@ -21,6 +21,10 @@
 		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
 		<param-value>/WEB-INF/prsi.taglib.xml</param-value>
 	</context-param>
+	<context-param>
+		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+		<param-value>/WEB-INF/etrs-ui.taglib.xml</param-value>
+	</context-param>
 	<mime-mapping>
 		<extension>ttf</extension>
 		<mime-type>css/fonts</mime-type>
