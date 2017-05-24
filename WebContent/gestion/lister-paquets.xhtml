@@ -5,8 +5,7 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:etrs="http://java.sun.com/jsf/composite/etrs"
 	xmlns:prsi="http://prsi/taglib"
-	template="/WEB-INF/templates/standard.xhtml"
-	xmlns:e="http://www.ent-etrs.net/prsi/jsf">
+	template="/WEB-INF/templates/standard.xhtml">
 
 	<ui:define name="zone-titre">
 		Liste des paquets
@@ -22,7 +21,7 @@
 
 		<prsi:mon-tag />
 		
-		<e:localDate value="#{cataloguePageBean.dateNow}" pattern="dd-MM-YYYY"></e:localDate>
+		<prsi:localDate value="#{cataloguePageBean.dateNow}" pattern="dd-MM-YYYY"></prsi:localDate>
 
 		<p:panel id="basic" header="Basic" footer="17-3A-pdi"
 			style="margin-bottom:20px">

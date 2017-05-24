@@ -11,7 +11,7 @@ import javax.faces.context.ResponseWriter;
 
 //@FacesComponent(value="components.LocalDateTag", createTag = true, tagName = "localDate", namespace = "http://www.ent-etrs.net/prsi/jsf")
 // value ne sert pas, peut être, enfin ça dépend de l'humeur de java...
-@FacesComponent(createTag = true, tagName = "localDate", namespace = "http://www.ent-etrs.net/prsi/jsf")
+@FacesComponent(value="components.LocalDateTag", createTag = true, tagName = "localDate", namespace = "http://www.ent-etrs.net/prsi/jsf")
 public class LocalDateTag extends UIComponentBase {
 
 	/**
