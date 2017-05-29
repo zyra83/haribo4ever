@@ -1,0 +1,26 @@
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:etrs="http://java.sun.com/jsf/composite/etrs"
+	xmlns:prsi="http://prsi/taglib"
+	template="/WEB-INF/templates/standard.xhtml">
+
+	<ui:define name="zone-titre">
+		Affichage d'un paquet
+	</ui:define>
+
+	<ui:define name="zone-contenu">
+		<f:metadata>
+			<f:viewParam name="uuid" value="#{affichePaquetBean.uuid}">
+				<f:validateLength maximum="36" minimum="36" />
+			</f:viewParam>
+		</f:metadata>
+	
+		Identifiant du paquet passé en paramètre : #{affichePaquetBean.uuid}
+          
+		<h:link outcome="lister-paquets.xhtml" value="JPP retour" />
+	</ui:define>
+
+</ui:composition>

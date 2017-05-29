@@ -35,7 +35,9 @@
 
 					<p:column headerText="Libellé">
 						<!-- 					<f:facet name="header">Libellé</f:facet> -->
-						<h:outputText value="#{p.nom}" />
+						<h:link value="#{p.nom}" outcome="afficher-paquet.xhtml">
+							<f:param name="uuid" value="#{p.id}" />
+						</h:link>
 					</p:column>
 
 					<p:column headerText="Genre">
