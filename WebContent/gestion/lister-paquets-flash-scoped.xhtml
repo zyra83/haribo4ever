@@ -1,0 +1,50 @@
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:etrs="http://java.sun.com/jsf/composite/etrs"
+	xmlns:prsi="http://prsi/taglib"
+	template="/WEB-INF/templates/standard.xhtml">
+
+	<ui:define name="zone-titre">
+		FLASH SCOPED - Liste des paquets 
+	</ui:define>
+
+	<ui:define name="zone-contenu">
+
+		<h:link outcome="ajouter-paquet.xhtml" header="Données">Retour à l'ajout</h:link>
+		<h:form id="dataForm">
+
+
+			<!--  p comme paquet, il est dispo en completion automatique en dessous -->
+			<p:dataTable id="dataTable"
+				value="#{listerPaquetsFlashScopePageBean.listerPaquets()}" var="p">
+
+				<p:column headerText="Libellé">
+
+					<h:commandLink
+						actionListener="#{listerPaquetsFlashScopePageBean.mettrePaquetEnFlashScope(p)}"
+						action="afficher-paquet-flash-scoped?faces-redirect=true" value="#{p.nom}" />
+
+				</p:column>
+
+				<p:column headerText="Genre">
+					<h:outputText value="#{p.genre}" />
+				</p:column>
+
+				<p:column headerText="Brouzouf">
+					<h:outputText value="#{p.brouzouf}" />
+				</p:column>
+
+				<p:column headerText="Actions">
+					<h:commandButton value="Suppression"
+						actionListener="#{clisterPaquetsFlashScopePageBean.suppression(p)}" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

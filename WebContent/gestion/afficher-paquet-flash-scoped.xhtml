@@ -1,0 +1,28 @@
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:etrs="http://java.sun.com/jsf/composite/etrs"
+	xmlns:prsi="http://prsi/taglib"
+	template="/WEB-INF/templates/standard.xhtml">
+
+	<ui:define name="zone-titre">
+		FLASH SCOPED - Affichage d'un paquet
+	</ui:define>
+
+	<ui:define name="zone-contenu">
+			
+		<h:panelGrid columns="1">
+
+			<h:outputText value="#{affichePaquetFlashScopePageBean.paquet.id}" />
+			<h:outputText value="#{affichePaquetFlashScopePageBean.paquet.nom}" />
+			<h:outputText value="#{affichePaquetFlashScopePageBean.paquet.genre}" />
+			<h:outputText escape="false" value="#{affichePaquetFlashScopePageBean.paquet.description}" />
+
+		</h:panelGrid>
+
+		<h:link outcome="lister-paquets-flash-scoped.xhtml" value="JPP retour" />
+	</ui:define>
+
+</ui:composition>
